@@ -29,7 +29,7 @@
     "contains_non_public_inventory": false,
     "digest": "sha256:aa0db0498ad6ea18325d5682122df83b6361e6d97e87a7da706ea8cd90b5f3da",
     "path": "owners/anticaptrad.json",
-    "repository": "ORESoftware/project-registry"
+    "repository": "approved-private-registry"
   },
   "relationships": [
     {
