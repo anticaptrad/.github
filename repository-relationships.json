@@ -1,10 +1,506 @@
 {
+  "$schema": "./repository-relationships.schema.json",
+  "audience": "public",
+  "generated": {
+    "complete_for_visibility": "public",
+    "generated_at": "2026-08-05T21:07:32Z",
+    "generator_version": "2026-08-04.1",
+    "inventory_digest": "sha256:936b4bac6e8bd731ca6e89845f888a31739c35b1ca965ef7ba10f840cfc472c9",
+    "managed_by": "ore-repository-relationship-rollout",
+    "omitted_repository_count": 0,
+    "private_repositories_omitted": false,
+    "source": "GitHub GraphQL repository inventory plus reviewed manual declarations"
+  },
+  "owner": {
+    "account_type": "organization",
+    "dotgithub_repository": "anticaptrad/.github",
+    "github_id": "308909485",
+    "linear_project": {
+      "id": "17fc7fee-7a7b-41ba-8e6e-919d7866406e",
+      "name": "github.com/anticaptrad",
+      "team_id": "eb8ab169-5afe-4b6f-9cab-3f2aa3e887dc",
+      "url": "https://linear.app/denman/project/githubcomanticaptrad-e8b18d73b7f5",
+      "workspace": "denman"
+    },
+    "login": "anticaptrad",
+    "mapping_id": "context:anticaptrad"
+  },
+  "private_registry": {
+    "contains_non_public_inventory": false,
+    "digest": "sha256:aa0db0498ad6ea18325d5682122df83b6361e6d97e87a7da706ea8cd90b5f3da",
+    "path": "owners/anticaptrad.json",
+    "repository": "ORESoftware/project-registry"
+  },
+  "relationships": [
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:7da11988f3683eda80ad0f2dbece85f6bd50f7160fb2607678524aab6be2ae78",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-ai-server.ts",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:e5296e80c255e1851960b6c98f74d7c749bf9d1ea5530ca6efba3455b3828904",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-api-server.rs",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:1c7de065ca57e58d6e0654a30baac56ded07df58150f1a08b87f5342e0c08b1e",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-clients",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:e1b998706cb6304ec814a84b51e65efc158139ec6d7f7764752af4a6b99442c9",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-e2e",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:07d68b1025dfd112622efa4487a3ec4004a3f0018ae7601daaaa6fb1bede2cb8",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-infra",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:eac669c5f01eb4cfbd6203ad5243ed89c478f2956193748f6b905fd678df0c5e",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-interfaces",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:3674c58dd527352971c81df0c1a3b52231d260c362d9749b90185b0a36999a65",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-mcp-server.rs",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:cd305d76b1d4618f27b046e6a4586dfb21cb3ca72116e0927fc3136ef80fcc0b",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-monorepo",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:1758fa987f36bda61f4bbc71fc1c70b29fa1cf0e7a0214328e5a9b3e708e6a86",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-sync",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "anticaptrad/.github",
+      "id": "sha256:0a56e3018363f73c30139aa8c4e04bc04b3567bb59cb2435cf77f82f507dae15",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "anticaptrad/act-web-server.rs",
+      "type": "governs"
+    },
+    {
+      "confidence": 0.82,
+      "evidence": [
+        {
+          "family": "act",
+          "kind": "paired-repository-naming",
+          "source_role": "api-server",
+          "target_role": "interfaces"
+        }
+      ],
+      "from": "anticaptrad/act-api-server.rs",
+      "id": "sha256:b8c4c18b69179dd253341e7bc589962a9df97c3b0b4d68a1c5a407383eb855f1",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces",
+      "type": "depends_on"
+    },
+    {
+      "confidence": 0.82,
+      "evidence": [
+        {
+          "family": "act",
+          "kind": "paired-repository-naming",
+          "source_role": "clients",
+          "target_role": "interfaces"
+        }
+      ],
+      "from": "anticaptrad/act-clients",
+      "id": "sha256:fe7317d52b34fb47b2b90accd2ba566ce2be0e2fca834110de5f42abbb375059",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces",
+      "type": "depends_on"
+    },
+    {
+      "confidence": 0.78,
+      "evidence": [
+        {
+          "family": "act",
+          "kind": "paired-repository-naming"
+        }
+      ],
+      "from": "anticaptrad/act-e2e",
+      "id": "sha256:555ecb86de2e249db3251a4caf9c3ccf5f9ebe3d0a335ddbbdb99e2600652916",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "anticaptrad/act-monorepo",
+      "type": "tests"
+    },
+    {
+      "confidence": 0.76,
+      "evidence": [
+        {
+          "family": "act",
+          "kind": "paired-repository-naming"
+        }
+      ],
+      "from": "anticaptrad/act-infra",
+      "id": "sha256:ad9ccdf4a2a397607235c84932bbb2f35e89ebac1e080d52eb2114061f7963f1",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "anticaptrad/act-monorepo",
+      "type": "deploys"
+    },
+    {
+      "confidence": 0.82,
+      "evidence": [
+        {
+          "family": "act",
+          "kind": "paired-repository-naming",
+          "source_role": "mcp-server",
+          "target_role": "interfaces"
+        }
+      ],
+      "from": "anticaptrad/act-mcp-server.rs",
+      "id": "sha256:6fb57df4af5fc365222dc8578259070b67f2189c87cd97b2a1f3219887d8d30d",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces",
+      "type": "depends_on"
+    },
+    {
+      "confidence": 0.82,
+      "evidence": [
+        {
+          "family": "act",
+          "kind": "paired-repository-naming",
+          "source_role": "sync",
+          "target_role": "interfaces"
+        }
+      ],
+      "from": "anticaptrad/act-sync",
+      "id": "sha256:9f929bff175280c63085c723691ea76ab56ed38ee6de1a5ebefcd1ed857214f3",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces",
+      "type": "depends_on"
+    },
+    {
+      "confidence": 0.82,
+      "evidence": [
+        {
+          "family": "act",
+          "kind": "paired-repository-naming",
+          "source_role": "web-server",
+          "target_role": "interfaces"
+        }
+      ],
+      "from": "anticaptrad/act-web-server.rs",
+      "id": "sha256:cfa35eb7d9d18476f986946b48811421d7a632d78b215e3d74d9a2a586204df3",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces",
+      "type": "depends_on"
+    }
+  ],
+  "repositories": [
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/.github",
+      "github_id": "1324047612",
+      "name": ".github",
+      "owner": "anticaptrad",
+      "roles": [
+        "community-health",
+        "governance",
+        "relationship-registry"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/.github",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-ai-server.ts",
+      "github_id": "1311495310",
+      "name": "act-ai-server.ts",
+      "owner": "anticaptrad",
+      "roles": [
+        "repository"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-ai-server.ts",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-api-server.rs",
+      "github_id": "1311495202",
+      "name": "act-api-server.rs",
+      "owner": "anticaptrad",
+      "roles": [
+        "api-server"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-api-server.rs",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-clients",
+      "github_id": "1311495363",
+      "name": "act-clients",
+      "owner": "anticaptrad",
+      "roles": [
+        "clients"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-clients",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-e2e",
+      "github_id": "1311533090",
+      "name": "act-e2e",
+      "owner": "anticaptrad",
+      "roles": [
+        "end-to-end-tests"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-e2e",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-infra",
+      "github_id": "1311495472",
+      "name": "act-infra",
+      "owner": "anticaptrad",
+      "roles": [
+        "infrastructure"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-infra",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-interfaces",
+      "github_id": "1311495418",
+      "name": "act-interfaces",
+      "owner": "anticaptrad",
+      "roles": [
+        "interfaces"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-interfaces",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-mcp-server.rs",
+      "github_id": "1311495150",
+      "name": "act-mcp-server.rs",
+      "owner": "anticaptrad",
+      "roles": [
+        "mcp-server"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-mcp-server.rs",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-monorepo",
+      "github_id": "1311495530",
+      "name": "act-monorepo",
+      "owner": "anticaptrad",
+      "roles": [
+        "monorepo"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-monorepo",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-sync",
+      "github_id": "1311533139",
+      "name": "act-sync",
+      "owner": "anticaptrad",
+      "roles": [
+        "sync"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-sync",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-web-server.rs",
+      "github_id": "1311495261",
+      "name": "act-web-server.rs",
+      "owner": "anticaptrad",
+      "roles": [
+        "web-server"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/anticaptrad/act-web-server.rs",
+      "visibility": "public"
+    }
+  ],
   "schema_version": 1,
-  "organization": "anticaptrad",
-  "generated_at": null,
-  "repositories": [],
-  "notes": [
-    "Populate from live GitHub inventory; do not infer unverified dependencies.",
-    "Repository-local manifests remain authoritative for exact dependency versions."
-  ]
+  "unresolved_hints": []
 }
