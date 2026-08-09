@@ -1,0 +1,490 @@
+{
+  "$schema": "./repository-relationships.schema.json",
+  "composition_policy": {
+    "dual_managed_invariant": "gitlink SHA must equal the source commit in the Zed lock entry",
+    "editable_source_composition": "git-submodules",
+    "package_and_artifact_resolution": "zed-pkg",
+    "production_deployment_resolution": "immutable OCI image digest or signed artifact",
+    "production_source_checkout": "forbidden as a runtime deployment mechanism"
+  },
+  "inventory_scope": "public-repositories-plus-role-contracts",
+  "observability_policy": {
+    "logs": "structured output with trace_id/span_id correlation",
+    "metrics": "Prometheus-compatible bounded-cardinality metrics",
+    "required_resource_attributes": [
+      "service.name",
+      "service.namespace",
+      "service.version",
+      "deployment.environment",
+      "vcs.ref.head.revision"
+    ],
+    "traces": "OpenTelemetry with W3C trace context"
+  },
+  "organization": "anticaptrad",
+  "privacy": {
+    "private_repository_count": 0,
+    "private_repository_names_published": false,
+    "public_repository_names_published": true,
+    "reason": "The public .github registry intentionally withholds private repository names and edges."
+  },
+  "registry_repository": "anticaptrad/.github",
+  "relationships": [
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-ai-server.ts"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-api-server.rs"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-clients"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-e2e"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-infra"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-mcp-server.rs"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-monorepo"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-sync"
+    },
+    {
+      "from": "anticaptrad/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-web-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-ai-server.ts",
+      "kind": "implements_contracts_from",
+      "rationale": "service boundary implements canonical contracts",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces"
+    },
+    {
+      "from": "anticaptrad/act-api-server.rs",
+      "kind": "implements_contracts_from",
+      "rationale": "service boundary implements canonical contracts",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces"
+    },
+    {
+      "from": "anticaptrad/act-clients",
+      "kind": "generated_from",
+      "rationale": "SDK bindings derive from canonical contracts",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces"
+    },
+    {
+      "from": "anticaptrad/act-e2e",
+      "kind": "tests",
+      "rationale": "black-box compatibility verification",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-ai-server.ts"
+    },
+    {
+      "from": "anticaptrad/act-e2e",
+      "kind": "tests",
+      "rationale": "black-box compatibility verification",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-api-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-e2e",
+      "kind": "tests",
+      "rationale": "black-box compatibility verification",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-mcp-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-e2e",
+      "kind": "tests",
+      "rationale": "black-box compatibility verification",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-sync"
+    },
+    {
+      "from": "anticaptrad/act-e2e",
+      "kind": "tests",
+      "rationale": "black-box compatibility verification",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-web-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-infra",
+      "kind": "deploys",
+      "rationale": "product infrastructure declares runtime resources",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-ai-server.ts"
+    },
+    {
+      "from": "anticaptrad/act-infra",
+      "kind": "deploys",
+      "rationale": "product infrastructure declares runtime resources",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-api-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-infra",
+      "kind": "deploys",
+      "rationale": "product infrastructure declares runtime resources",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-mcp-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-infra",
+      "kind": "deploys",
+      "rationale": "product infrastructure declares runtime resources",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-sync"
+    },
+    {
+      "from": "anticaptrad/act-infra",
+      "kind": "deploys",
+      "rationale": "product infrastructure declares runtime resources",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-web-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-mcp-server.rs",
+      "kind": "calls",
+      "rationale": "agent tools use the authenticated product API",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-api-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-mcp-server.rs",
+      "kind": "uses_sdk",
+      "rationale": "agent adapter reuses the typed product SDK",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-clients"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-ai-server.ts"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-api-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-clients"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-e2e"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-infra"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-mcp-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-sync"
+    },
+    {
+      "from": "anticaptrad/act-monorepo",
+      "kind": "composes",
+      "rationale": "development workspace and release bill of materials",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-web-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-sync",
+      "kind": "synchronizes_with",
+      "rationale": "sync exchanges state through the product service boundary",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-api-server.rs"
+    },
+    {
+      "from": "anticaptrad/act-sync",
+      "kind": "uses_contracts_from",
+      "rationale": "sync payloads follow canonical schemas",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-interfaces"
+    },
+    {
+      "from": "anticaptrad/act-web-server.rs",
+      "kind": "calls",
+      "rationale": "client uses the product service boundary",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "anticaptrad/act-api-server.rs"
+    },
+    {
+      "from": "organization://anticaptrad",
+      "kind": "reconciles_via",
+      "rationale": "product sync wraps the generic reconciliation engine",
+      "source_basis": "platform-policy",
+      "status": "platform-default",
+      "to": "platform://opto-sync"
+    },
+    {
+      "from": "organization://anticaptrad",
+      "kind": "deployed_via",
+      "rationale": "immutable artifacts are promoted by digest through GitOps",
+      "source_basis": "platform-policy",
+      "status": "platform-default",
+      "to": "platform://ORESoftware/k8s-cluster"
+    },
+    {
+      "from": "organization://anticaptrad",
+      "kind": "uses_transport_library",
+      "rationale": "shared MCP transport and protocol hardening",
+      "source_basis": "platform-policy",
+      "status": "platform-default",
+      "to": "platform://ORESoftware/mcp-rust-libs"
+    },
+    {
+      "from": "organization://anticaptrad",
+      "kind": "packaged_via",
+      "rationale": "Zed resolves artifacts while submodules compose editable source",
+      "source_basis": "platform-policy",
+      "status": "platform-default",
+      "to": "platform://zed-pkg"
+    }
+  ],
+  "repositories": [
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/.github",
+      "lifecycle": "active",
+      "name": ".github",
+      "role": "organization_governance",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-interfaces",
+      "lifecycle": "active",
+      "name": "act-interfaces",
+      "role": "interfaces",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-clients",
+      "lifecycle": "active",
+      "name": "act-clients",
+      "role": "client_sdk",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-api-server.rs",
+      "lifecycle": "active",
+      "name": "act-api-server.rs",
+      "role": "api_service",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-ai-server.ts",
+      "lifecycle": "active",
+      "name": "act-ai-server.ts",
+      "role": "domain_service",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-sync",
+      "lifecycle": "active",
+      "name": "act-sync",
+      "role": "sync_service",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-mcp-server.rs",
+      "lifecycle": "active",
+      "name": "act-mcp-server.rs",
+      "role": "mcp_server",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-web-server.rs",
+      "lifecycle": "active",
+      "name": "act-web-server.rs",
+      "role": "web_bff",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-infra",
+      "lifecycle": "active",
+      "name": "act-infra",
+      "role": "infrastructure",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-e2e",
+      "lifecycle": "active",
+      "name": "act-e2e",
+      "role": "end_to_end_tests",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "anticaptrad/act-monorepo",
+      "lifecycle": "active",
+      "name": "act-monorepo",
+      "role": "composition_workspace",
+      "visibility": "public"
+    }
+  ],
+  "role_contracts": {
+    "api_service": "Owns public APIs, webhooks, authorization, validation, and orchestration.",
+    "client_sdk": "Depends on interfaces and exposes generated clients plus thin wrappers.",
+    "composition_workspace": "Composes source repositories and records the release BOM.",
+    "end_to_end_tests": "Runs black-box compatibility and user-flow checks.",
+    "infrastructure": "Owns product cloud resources; promotion remains GitOps-controlled.",
+    "interfaces": "Own OpenAPI, events, JSON Schema, compatibility fixtures, and DTO inputs.",
+    "mcp_server": "Calls product SDKs/APIs; no parallel domain persistence.",
+    "sync_service": "Owns product conflict policy/adapters and wraps Opto reconciliation.",
+    "web_bff": "Owns browser sessions, CSRF, HTML/SSR, and calls the product API."
+  },
+  "schema_version": "1.0.0",
+  "service_boundary_policy": {
+    "cross_service_database_access": "forbidden-by-default",
+    "mcp_database_access": "forbidden-by-default; MCP calls the product API/SDK",
+    "preferred_cross_service_calls": "typed API/SDK, event, or owned replicated read model"
+  }
+}
