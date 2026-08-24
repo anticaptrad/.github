@@ -1,41 +1,49 @@
-## Purpose
+## Change summary
 
-Describe the problem, intended behavior, and why this repository owns the change.
+Describe the user-visible behavior, affected repositories or components, compatibility impact, failure behavior, and reversible rollout path. Mark non-applicable checks as `N/A` with a reason.
 
-## Review path
+## Review gates
 
-- [ ] All commits are on a non-default branch and this pull request is the only proposed path into the default branch.
-- [ ] No generated tool, bot, migration runner, or deployment process writes directly to `main`, `master`, or another protected default branch.
-- [ ] The change is small enough to review, or its staged rollout and follow-up pull requests are identified.
+### Review path and dependencies
 
-## Scope and boundaries
+- [ ] All commits are on a non-default branch and this pull request is the only proposed path into the protected default branch.
+- [ ] No generated tool, bot, migration runner, or deployment process writes directly to a protected default branch.
+- [ ] The change is reviewable as one unit, or its staged rollout and follow-up pull requests are identified.
+- [ ] Cross-repository dependencies are pinned by immutable commit, lockfile, or released Zed package.
+- [ ] Public contracts are generated from canonical interface or schema sources and consumer compatibility was checked.
+- [ ] Breaking changes include migration, rollback, backfill, and staged-rollout evidence.
+
+### Scope and ownership boundaries
 
 - [ ] The change is focused and does not silently cross repository ownership boundaries.
 - [ ] No `*-infra` repository is introduced as a Git submodule under `*-monorepo/apps`.
-- [ ] Public contracts, compatibility, rollback, telemetry, and failure behavior are documented.
-- [ ] Shared functionality is imported from its owning repository rather than copied into a new local implementation.
+- [ ] Shared functionality is imported from its owning repository rather than copied into a local implementation.
+- [ ] Public contracts, compatibility, telemetry, rollback, and failure behavior are documented.
 
-## Contracts, SQL, and migrations
+### SQL, persistence, and state
 
-- [ ] If SQL changes, declarations use the registered logical namespace `<organization>.<domain>` and stable `<domain>_` object prefixes where a shared PostgreSQL schema such as `public` is required.
-- [ ] Domain SQL may remain in the owning organization, but identity, ordering, checksums, drift detection, and promotion are registered through `declarative-migrations`.
-- [ ] JSON Schema, generated language interfaces, ORM models, fixtures, and migration declarations were updated and checked deterministically together.
-- [ ] Destructive changes include compatibility, backfill, rollback, tenant isolation, and row-level-security evidence.
+- [ ] No SQL changes are present, or every declaration has a registered `<organization>.<domain>` namespace, stable object prefix where required, and explicit owning repository.
+- [ ] Domain SQL may remain with its owning organization, but identity, ordering, checksums, drift detection, and promotion are registered through `declarative-migrations`.
+- [ ] JSON Schema, generated interfaces, ORM models, fixtures, and migration declarations were updated and checked deterministically together.
+- [ ] Application startup validates schema compatibility and does not apply production DDL.
+- [ ] Destructive changes, tenant isolation, RLS/authorization, idempotency, state-machine invariants, backfill, and rollback have evidence.
 
-## Infrastructure and end-to-end coverage
+### Infrastructure, security, and end-to-end coverage
 
-- [ ] Kubernetes application manifests compose through `oresoftware/k8s-cluster` and reuse `oresoftware/k8s-libs-and-shared-defs`; application repositories do not become a second cluster control plane.
-- [ ] Workload identity, restricted Pod Security, default-deny networking, explicit egress, probes, resources, secret handling, and immutable image/dependency references were considered.
-- [ ] Destructive and cross-runtime tests run in the corresponding `*-test` organization or an isolated e2e environment, with teardown evidence.
-- [ ] Zed lifecycle hooks cover the relevant pre-build, pre-test, and pre-publish checks without bypassing local language-native validation.
+- [ ] Application manifests remain app-owned; cluster composition is delegated to `oresoftware/k8s-cluster` and shared components to `oresoftware/k8s-libs-and-shared-defs`.
+- [ ] Workload identity, restricted Pod Security, default-deny networking, explicit egress, probes, non-root execution, bounded resources, secret handling, and immutable image/dependency references were considered.
+- [ ] Authentication and authorization failures are fail-closed, sensitive operations are auditable, and tenant boundaries are preserved.
+- [ ] Destructive and cross-runtime tests run in the corresponding `*-test` organization or an isolated E2E environment, with teardown evidence.
+- [ ] Zed lifecycle hooks cover deterministic format, lint, build, contract, test, and publish checks without bypassing language-native validation.
 
-## Validation
+### Verification, observability, and safety
 
-List formatters, linters, tests, builds, schema/codegen checks, migration validation, security checks, and manual verification performed. Include exact commands and explain any check that could not run.
+- [ ] Unit, integration, adversarial, migration, contract, and end-to-end tests cover the changed behavior.
+- [ ] ORES OTEL trace and correlation propagation is present where applicable, with secrets and user-content capture disabled by default.
+- [ ] Secrets, credentials, personal data, private repository inventory, sensitive telemetry, and user content are excluded from source, logs, fixtures, and build artifacts.
+- [ ] Conflicts were resolved semantically using both sides and relevant history; no destructive Git recovery, force push, or history rewrite was used.
+- [ ] Test evidence, residual risks, follow-up work, and intentionally deferred repositories are listed below.
 
-## Safety
+## Validation evidence and residual risk
 
-- [ ] No credentials, customer data, private-repository inventory, or sensitive telemetry is included.
-- [ ] Conflicts were resolved semantically using both sides and relevant history.
-- [ ] Destructive Git recovery, force pushes to protected branches, and history rewrites were not used.
-- [ ] Logs and traces exclude secrets and user content by default and preserve tenant boundaries.
+Provide exact commands, checks, fixtures, test-organization run links, migration and drift results, teardown evidence, manual verification, known limitations, and follow-up owners.
