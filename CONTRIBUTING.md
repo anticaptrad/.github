@@ -61,6 +61,8 @@ External GitHub Actions must be pinned to full commit SHAs. Workflows must use e
 
 ## Rust-first scripts and automation
 
+**Organization standard:** [Rust-first testing and safe Python migration](policies/RUST_FIRST_TESTING.md). New test and CI scripts must be Rust; retain existing Python checks until equivalent Rust verification is proven.
+
 **Use Rust instead of Python for all new first-party scripts.** No new Python for CI, build/test automation, code generation, deployment, releases, migrations, developer tooling, repository administration, audits or one-off maintenance. Prefer maintained Rust CLIs or `cargo xtask`; keep shell/YAML as small command wrappers rather than replacing Python with complex shell programs.
 
 **Existing Python scripts should be migrated with behavioral parity**, not deleted prematurely. Record CLI arguments, inputs/outputs, exit codes, error paths, platform requirements, callers and security expectations. Replace with equivalent tested Rust tools, validate positive and negative cases and actual backend/workflow execution where relevant, then update callers and retire the old dependency. Policy documentation by itself does not demonstrate runtime coverage.
