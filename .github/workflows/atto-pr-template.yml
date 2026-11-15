@@ -1,0 +1,32 @@
+name: AttoLang PR admission template
+on:
+  pull_request:
+    paths:
+      - '.github/PULL_REQUEST_TEMPLATE/atto-lang-candidate.md'
+      - 'scripts/test-atto-pr-template.mjs'
+      - 'scripts/test_atto_pr_template.rs'
+      - '.github/workflows/atto-pr-template.yml'
+  push:
+    branches: [main]
+    paths:
+      - '.github/PULL_REQUEST_TEMPLATE/atto-lang-candidate.md'
+      - 'scripts/test-atto-pr-template.mjs'
+      - 'scripts/test_atto_pr_template.rs'
+      - '.github/workflows/atto-pr-template.yml'
+permissions:
+  contents: read
+jobs:
+  candidate-template:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@4be7066ada62dd38de10e7b70166bc74ed198c30
+        with:
+          toolchain: stable
+      - name: Verify AttoLang review template in Rust
+        run: |
+          rustc --edition=2021 --test scripts/test_atto_pr_template.rs -o "$RUNNER_TEMP/atto-template-tests"
+          "$RUNNER_TEMP/atto-template-tests"
