@@ -1,0 +1,48 @@
+name: Rust-first test policy
+on:
+  pull_request:
+    paths:
+      - 'CONTRIBUTING.md'
+      - 'README.md'
+      - 'policies/RUST_FIRST_TESTING.md'
+      - 'scripts/test_rust_first_policy.rs'
+      - 'scripts/deny_new_python.rs'
+      - '.github/workflows/rust-first-policy.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'CONTRIBUTING.md'
+      - 'README.md'
+      - 'policies/RUST_FIRST_TESTING.md'
+      - 'scripts/test_rust_first_policy.rs'
+      - 'scripts/deny_new_python.rs'
+      - '.github/workflows/rust-first-policy.yml'
+permissions:
+  contents: read
+jobs:
+  rust-policy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: dtolnay/rust-toolchain@4be7066ada62dd38de10e7b70166bc74ed198c30
+        with:
+          toolchain: stable
+      - name: Compile and run Rust policy tests
+        run: |
+          rustc --edition=2021 --test scripts/test_rust_first_policy.rs -o "$RUNNER_TEMP/rust-first-policy-tests"
+          "$RUNNER_TEMP/rust-first-policy-tests"
+          rustc --edition=2021 --test scripts/deny_new_python.rs -o "$RUNNER_TEMP/rust-python-scanner-tests"
+          "$RUNNER_TEMP/rust-python-scanner-tests"
+      - name: Reject newly introduced Python automation
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          rustc --edition=2021 scripts/deny_new_python.rs -o "$RUNNER_TEMP/deny-new-python"
+          "$RUNNER_TEMP/deny-new-python" "$BASE_SHA" "$HEAD_SHA"
